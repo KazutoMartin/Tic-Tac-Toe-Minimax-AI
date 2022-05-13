@@ -1,0 +1,5 @@
+# Tic-Tac-Toe-Minimax-AI
+
+
+Algorithm used : [Minimax](https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-1-introduction/?ref=lbp) 
+Ui : Tkinter
