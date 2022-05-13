@@ -55,7 +55,7 @@ def minimax(board, is_max, me, user):
 
 def is_end(board):
     for r in range(3) :    
-        if (board[r][0] == board[r][1] and board[r][1] == board[r][2]) and board[r][0] == " ":       
+        if (board[r][0] == board[r][1] and board[r][1] == board[r][2]):       
             if (board[r][0] == me):
                 return 1
             elif (board[r][0] == user):
@@ -63,27 +63,33 @@ def is_end(board):
  
     for col in range(3) :
       
-        if (board[0][col] == board[1][col] and board[1][col] == board[2][col]) and board[0][col] == " ":
+        if (board[0][col] == board[1][col] and board[1][col] == board[2][col]):
          
             if (board[0][col] == me):
                 return 1
             elif (board[0][col] == user):
                 return -1
  
-    if (board[0][0] == board[1][1] and board[1][1] == board[2][2]) and board[2][2] == " ":
+    if (board[0][0] == board[1][1] and board[1][1] == board[2][2]):
      
         if (board[0][0] == me):
             return 1
         elif (board[0][0] == user):
             return -1
  
-    if (board[0][2] == board[1][1] and board[1][1] == board[2][0]) and board[0][2] == " ":
+    if (board[0][2] == board[1][1] and board[1][1] == board[2][0]):
      
         if (board[0][2] == me):
             return 1
         elif (board[0][2] == user):
             return -1
-        
+    # draw = False
+    # if is_draw:
+    #     # draw = True
+    #     return True
+    
+    # return 0, draw
+    
 #########################################################################
 
 def is_draw(board):
@@ -106,17 +112,17 @@ def best_move(board):
             if board[i][k] == " ":
                 board[i][k] = me
                 score = minimax(board, False, me, user)
-                print(score, f'for {i} {k}')
+                # print(score, f'for {i} {k}')
                 # undo the change
                 board[i][k] = " "
                 # print('here is the board', board)
                 
                 if score > best_move_score:
                     best_move_cell = (i, k)
-                    print(best_move_cell)
+                    # print(best_move_cell)
                     best_move_score = score
                     
-    print(best_move_cell)
+    # print(best_move_cell)
     return best_move_cell, best_move_score
 
 
@@ -160,7 +166,7 @@ def check():
         return False
         
 def click(row,col):
-        print(row, col)
+        # print(row, col)
         b[row][col].config(text=a,state=DISABLED,disabledforeground=colour[a])
         board[row][col] = a
         state = check()
